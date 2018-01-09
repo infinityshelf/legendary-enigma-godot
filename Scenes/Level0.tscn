@@ -1,0 +1,1689 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://Scripts/dungeon_map.gd" type="Script" id=1]
+[ext_resource path="res://Tiles/tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Scenes/EnemyMinion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/HeroMinion.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Textures/icon.tex" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="ColorFrame" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = -576.0
+margin/bottom = -256.0
+color = Color( 0.568627, 0.690196, 0.603922, 1 )
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap" type="TileMap" parent="Control"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 0, 50, 1, 60, 2, 60, 3, 60, 4, 60, 5, 70, 6, 11, 7, 11, 8, 50, 9, 60, 10, 60, 11, 60, 12, 70, 13, 11, 14, 11, 15, 11, 16, 11, 17, 11, 18, 11, 19, 11, 20, 11, 21, 11, 22, 11, 23, 11, 24, 11, 25, 11, 26, 11, 27, 11, 28, 11, 29, 11, 30, 11, 31, 11, 32, 11, 33, 11, 34, 11, 35, 11, 36, 11, 37, 11, 38, 11, 39, 11, 65536, 51, 65537, 16, 65538, 61, 65539, 61, 65540, 61, 65541, 71, 65542, 11, 65543, 11, 65544, 51, 65545, 61, 65546, 61, 65547, 61, 65548, 71, 65549, 11, 65550, 11, 65551, 11, 65552, 11, 65553, 50, 65554, 60, 65555, 60, 65556, 60, 65557, 60, 65558, 60, 65559, 60, 65560, 60, 65561, 60, 65562, 60, 65563, 60, 65564, 60, 65565, 60, 65566, 60, 65567, 60, 65568, 60, 65569, 60, 65570, 60, 65571, 60, 65572, 60, 65573, 60, 65574, 70, 65575, 11, 131072, 64, 131073, 62, 131077, 82, 131078, 60, 131079, 60, 131080, 92, 131083, 156, 131084, 72, 131085, 11, 131086, 11, 131087, 11, 131088, 11, 131089, 51, 131090, 61, 131091, 61, 131092, 61, 131093, 61, 131094, 61, 131095, 61, 131096, 61, 131097, 61, 131098, 61, 131099, 61, 131100, 61, 131101, 61, 131102, 61, 131103, 61, 131104, 61, 131105, 61, 131106, 61, 131107, 61, 131108, 61, 131109, 61, 131110, 71, 131111, 11, 196608, 52, 196613, 83, 196614, 61, 196615, 61, 196616, 93, 196620, 72, 196621, 11, 196622, 11, 196623, 11, 196624, 11, 196625, 64, 196646, 72, 196647, 11, 262144, 52, 262156, 82, 262157, 60, 262158, 60, 262159, 60, 262160, 60, 262161, 92, 262182, 72, 262183, 11, 327680, 53, 327681, 63, 327682, 90, 327692, 83, 327693, 61, 327694, 61, 327695, 61, 327696, 61, 327697, 93, 327700, 167, 327718, 72, 327719, 11, 393216, 11, 393217, 11, 393218, 52, 393254, 72, 393255, 11, 458752, 11, 458753, 11, 458754, 52, 458790, 72, 458791, 11, 524288, 11, 524289, 11, 524290, 53, 524291, 63, 524292, 90, 524326, 72, 524327, 11, 589824, 11, 589825, 11, 589826, 11, 589827, 11, 589828, 64, 589834, 177, 589862, 72, 589863, 11, 655360, 11, 655361, 11, 655362, 11, 655363, 11, 655364, 64, 655398, 72, 655399, 11, 720896, 11, 720897, 11, 720898, 11, 720899, 11, 720900, 64, 720934, 72, 720935, 11, 786432, 11, 786433, 50, 786434, 60, 786435, 60, 786436, 92, 786470, 72, 786471, 11, 851968, 11, 851969, 51, 851970, 54, 851971, 61, 851972, 93, 852006, 72, 852007, 11, 917504, 11, 917505, 52, 917506, 157, 917512, 166, 917521, 177, 917542, 72, 917543, 11, 983040, 11, 983041, 52, 983078, 72, 983079, 11, 1048576, 11, 1048577, 52, 1048612, 158, 1048613, 168, 1048614, 72, 1048615, 11, 1114112, 11, 1114113, 52, 1114148, 159, 1114149, 169, 1114150, 72, 1114151, 11, 1179648, 11, 1179649, 53, 1179650, 63, 1179651, 63, 1179652, 63, 1179653, 63, 1179654, 63, 1179655, 63, 1179656, 63, 1179657, 63, 1179658, 63, 1179659, 63, 1179660, 63, 1179661, 63, 1179662, 63, 1179663, 63, 1179664, 63, 1179665, 63, 1179666, 63, 1179667, 63, 1179668, 63, 1179669, 63, 1179670, 63, 1179671, 63, 1179672, 63, 1179673, 63, 1179674, 63, 1179675, 63, 1179676, 63, 1179677, 63, 1179678, 63, 1179679, 63, 1179680, 63, 1179681, 63, 1179682, 63, 1179683, 63, 1179684, 63, 1179685, 63, 1179686, 73, 1179687, 11, 1245184, 11, 1245185, 11, 1245186, 11, 1245187, 11, 1245188, 11, 1245189, 11, 1245190, 11, 1245191, 11, 1245192, 11, 1245193, 11, 1245194, 11, 1245195, 11, 1245196, 11, 1245197, 11, 1245198, 11, 1245199, 11, 1245200, 11, 1245201, 11, 1245202, 11, 1245203, 11, 1245204, 11, 1245205, 11, 1245206, 11, 1245207, 11, 1245208, 11, 1245209, 11, 1245210, 11, 1245211, 11, 1245212, 11, 1245213, 11, 1245214, 11, 1245215, 11, 1245216, 11, 1245217, 11, 1245218, 11, 1245219, 11, 1245220, 11, 1245221, 11, 1245222, 11, 1245223, 11, 1638432, 0, 1703947, 0 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Control"]
+
+editor/display_folded = true
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 8, 40 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 1 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 8, 56 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 1 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 8, 72 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 1 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 24, 88 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 1 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, 40, 104 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 1 )
+shapes/5/transform = Matrix32( 1, 0, 0, 1, 40, 120 )
+shapes/5/trigger = false
+shapes/6/shape = SubResource( 1 )
+shapes/6/transform = Matrix32( 1, 0, 0, 1, 56, 136 )
+shapes/6/trigger = false
+shapes/7/shape = SubResource( 1 )
+shapes/7/transform = Matrix32( 1, 0, 0, 1, 72, 136 )
+shapes/7/trigger = false
+shapes/8/shape = SubResource( 1 )
+shapes/8/transform = Matrix32( 1, 0, 0, 1, 72, 152 )
+shapes/8/trigger = false
+shapes/9/shape = SubResource( 1 )
+shapes/9/transform = Matrix32( 1, 0, 0, 1, 72, 168 )
+shapes/9/trigger = false
+shapes/10/shape = SubResource( 1 )
+shapes/10/transform = Matrix32( 1, 0, 0, 1, 72, 184 )
+shapes/10/trigger = false
+shapes/11/shape = SubResource( 1 )
+shapes/11/transform = Matrix32( 1, 0, 0, 1, 72, 200 )
+shapes/11/trigger = false
+shapes/12/shape = SubResource( 1 )
+shapes/12/transform = Matrix32( 1, 0, 0, 1, 72, 216 )
+shapes/12/trigger = false
+shapes/13/shape = SubResource( 1 )
+shapes/13/transform = Matrix32( 1, 0, 0, 1, 56, 216 )
+shapes/13/trigger = false
+shapes/14/shape = SubResource( 1 )
+shapes/14/transform = Matrix32( 1, 0, 0, 1, 40, 216 )
+shapes/14/trigger = false
+shapes/15/shape = SubResource( 1 )
+shapes/15/transform = Matrix32( 1, 0, 0, 1, 24, 232 )
+shapes/15/trigger = false
+shapes/16/shape = SubResource( 1 )
+shapes/16/transform = Matrix32( 1, 0, 0, 1, 24, 248 )
+shapes/16/trigger = false
+shapes/17/shape = SubResource( 1 )
+shapes/17/transform = Matrix32( 1, 0, 0, 1, 24, 264 )
+shapes/17/trigger = false
+shapes/18/shape = SubResource( 1 )
+shapes/18/transform = Matrix32( 1, 0, 0, 1, 24, 280 )
+shapes/18/trigger = false
+shapes/19/shape = SubResource( 1 )
+shapes/19/transform = Matrix32( 1, 0, 0, 1, 40, 296 )
+shapes/19/trigger = false
+shapes/20/shape = SubResource( 1 )
+shapes/20/transform = Matrix32( 1, 0, 0, 1, 40, 88 )
+shapes/20/trigger = false
+shapes/21/shape = SubResource( 1 )
+shapes/21/transform = Matrix32( 1, 0, 0, 1, 24, 24 )
+shapes/21/trigger = false
+shapes/22/shape = SubResource( 1 )
+shapes/22/transform = Matrix32( 1, 0, 0, 1, 40, 24 )
+shapes/22/trigger = false
+shapes/23/shape = SubResource( 1 )
+shapes/23/transform = Matrix32( 1, 0, 0, 1, 56, 24 )
+shapes/23/trigger = false
+shapes/24/shape = SubResource( 1 )
+shapes/24/transform = Matrix32( 1, 0, 0, 1, 72, 24 )
+shapes/24/trigger = false
+shapes/25/shape = SubResource( 1 )
+shapes/25/transform = Matrix32( 1, 0, 0, 1, 88, 40 )
+shapes/25/trigger = false
+shapes/26/shape = SubResource( 1 )
+shapes/26/transform = Matrix32( 1, 0, 0, 1, 88, 56 )
+shapes/26/trigger = false
+shapes/27/shape = SubResource( 1 )
+shapes/27/transform = Matrix32( 1, 0, 0, 1, 104, 56 )
+shapes/27/trigger = false
+shapes/28/shape = SubResource( 1 )
+shapes/28/transform = Matrix32( 1, 0, 0, 1, 120, 56 )
+shapes/28/trigger = false
+shapes/29/shape = SubResource( 1 )
+shapes/29/transform = Matrix32( 1, 0, 0, 1, 136, 56 )
+shapes/29/trigger = false
+shapes/30/shape = SubResource( 1 )
+shapes/30/transform = Matrix32( 1, 0, 0, 1, 136, 40 )
+shapes/30/trigger = false
+shapes/31/shape = SubResource( 1 )
+shapes/31/transform = Matrix32( 1, 0, 0, 1, 152, 24 )
+shapes/31/trigger = false
+shapes/32/shape = SubResource( 1 )
+shapes/32/transform = Matrix32( 1, 0, 0, 1, 168, 24 )
+shapes/32/trigger = false
+shapes/33/shape = SubResource( 1 )
+shapes/33/transform = Matrix32( 1, 0, 0, 1, 184, 24 )
+shapes/33/trigger = false
+shapes/34/shape = SubResource( 1 )
+shapes/34/transform = Matrix32( 1, 0, 0, 1, 200, 40 )
+shapes/34/trigger = false
+shapes/35/shape = SubResource( 1 )
+shapes/35/transform = Matrix32( 1, 0, 0, 1, 200, 56 )
+shapes/35/trigger = false
+shapes/36/shape = SubResource( 1 )
+shapes/36/transform = Matrix32( 1, 0, 0, 1, 200, 72 )
+shapes/36/trigger = false
+shapes/37/shape = SubResource( 1 )
+shapes/37/transform = Matrix32( 1, 0, 0, 1, 200, 88 )
+shapes/37/trigger = false
+shapes/38/shape = SubResource( 1 )
+shapes/38/transform = Matrix32( 1, 0, 0, 1, 216, 88 )
+shapes/38/trigger = false
+shapes/39/shape = SubResource( 1 )
+shapes/39/transform = Matrix32( 1, 0, 0, 1, 232, 88 )
+shapes/39/trigger = false
+shapes/40/shape = SubResource( 1 )
+shapes/40/transform = Matrix32( 1, 0, 0, 1, 248, 88 )
+shapes/40/trigger = false
+shapes/41/shape = SubResource( 1 )
+shapes/41/transform = Matrix32( 1, 0, 0, 1, 264, 88 )
+shapes/41/trigger = false
+shapes/42/shape = SubResource( 1 )
+shapes/42/transform = Matrix32( 1, 0, 0, 1, 280, 88 )
+shapes/42/trigger = false
+shapes/43/shape = SubResource( 1 )
+shapes/43/transform = Matrix32( 1, 0, 0, 1, 280, 72 )
+shapes/43/trigger = false
+shapes/44/shape = SubResource( 1 )
+shapes/44/transform = Matrix32( 1, 0, 0, 1, 280, 56 )
+shapes/44/trigger = false
+shapes/45/shape = SubResource( 1 )
+shapes/45/transform = Matrix32( 1, 0, 0, 1, 296, 40 )
+shapes/45/trigger = false
+shapes/46/shape = SubResource( 1 )
+shapes/46/transform = Matrix32( 1, 0, 0, 1, 312, 40 )
+shapes/46/trigger = false
+shapes/47/shape = SubResource( 1 )
+shapes/47/transform = Matrix32( 1, 0, 0, 1, 328, 40 )
+shapes/47/trigger = false
+shapes/48/shape = SubResource( 1 )
+shapes/48/transform = Matrix32( 1, 0, 0, 1, 344, 40 )
+shapes/48/trigger = false
+shapes/49/shape = SubResource( 1 )
+shapes/49/transform = Matrix32( 1, 0, 0, 1, 360, 40 )
+shapes/49/trigger = false
+shapes/50/shape = SubResource( 1 )
+shapes/50/transform = Matrix32( 1, 0, 0, 1, 376, 40 )
+shapes/50/trigger = false
+shapes/51/shape = SubResource( 1 )
+shapes/51/transform = Matrix32( 1, 0, 0, 1, 392, 40 )
+shapes/51/trigger = false
+shapes/52/shape = SubResource( 1 )
+shapes/52/transform = Matrix32( 1, 0, 0, 1, 408, 40 )
+shapes/52/trigger = false
+shapes/53/shape = SubResource( 1 )
+shapes/53/transform = Matrix32( 1, 0, 0, 1, 424, 40 )
+shapes/53/trigger = false
+shapes/54/shape = SubResource( 1 )
+shapes/54/transform = Matrix32( 1, 0, 0, 1, 440, 40 )
+shapes/54/trigger = false
+shapes/55/shape = SubResource( 1 )
+shapes/55/transform = Matrix32( 1, 0, 0, 1, 456, 40 )
+shapes/55/trigger = false
+shapes/56/shape = SubResource( 1 )
+shapes/56/transform = Matrix32( 1, 0, 0, 1, 472, 40 )
+shapes/56/trigger = false
+shapes/57/shape = SubResource( 1 )
+shapes/57/transform = Matrix32( 1, 0, 0, 1, 488, 40 )
+shapes/57/trigger = false
+shapes/58/shape = SubResource( 1 )
+shapes/58/transform = Matrix32( 1, 0, 0, 1, 504, 40 )
+shapes/58/trigger = false
+shapes/59/shape = SubResource( 1 )
+shapes/59/transform = Matrix32( 1, 0, 0, 1, 600, 40 )
+shapes/59/trigger = false
+shapes/60/shape = SubResource( 1 )
+shapes/60/transform = Matrix32( 1, 0, 0, 1, 616, 56 )
+shapes/60/trigger = false
+shapes/61/shape = SubResource( 1 )
+shapes/61/transform = Matrix32( 1, 0, 0, 1, 616, 72 )
+shapes/61/trigger = false
+shapes/62/shape = SubResource( 1 )
+shapes/62/transform = Matrix32( 1, 0, 0, 1, 616, 88 )
+shapes/62/trigger = false
+shapes/63/shape = SubResource( 1 )
+shapes/63/transform = Matrix32( 1, 0, 0, 1, 616, 104 )
+shapes/63/trigger = false
+shapes/64/shape = SubResource( 1 )
+shapes/64/transform = Matrix32( 1, 0, 0, 1, 616, 120 )
+shapes/64/trigger = false
+shapes/65/shape = SubResource( 1 )
+shapes/65/transform = Matrix32( 1, 0, 0, 1, 616, 136 )
+shapes/65/trigger = false
+shapes/66/shape = SubResource( 1 )
+shapes/66/transform = Matrix32( 1, 0, 0, 1, 616, 152 )
+shapes/66/trigger = false
+shapes/67/shape = SubResource( 1 )
+shapes/67/transform = Matrix32( 1, 0, 0, 1, 616, 168 )
+shapes/67/trigger = false
+shapes/68/shape = SubResource( 1 )
+shapes/68/transform = Matrix32( 1, 0, 0, 1, 616, 184 )
+shapes/68/trigger = false
+shapes/69/shape = SubResource( 1 )
+shapes/69/transform = Matrix32( 1, 0, 0, 1, 616, 200 )
+shapes/69/trigger = false
+shapes/70/shape = SubResource( 1 )
+shapes/70/transform = Matrix32( 1, 0, 0, 1, 616, 216 )
+shapes/70/trigger = false
+shapes/71/shape = SubResource( 1 )
+shapes/71/transform = Matrix32( 1, 0, 0, 1, 616, 232 )
+shapes/71/trigger = false
+shapes/72/shape = SubResource( 1 )
+shapes/72/transform = Matrix32( 1, 0, 0, 1, 616, 248 )
+shapes/72/trigger = false
+shapes/73/shape = SubResource( 1 )
+shapes/73/transform = Matrix32( 1, 0, 0, 1, 616, 264 )
+shapes/73/trigger = false
+shapes/74/shape = SubResource( 1 )
+shapes/74/transform = Matrix32( 1, 0, 0, 1, 616, 280 )
+shapes/74/trigger = false
+shapes/75/shape = SubResource( 1 )
+shapes/75/transform = Matrix32( 1, 0, 0, 1, 600, 296 )
+shapes/75/trigger = false
+shapes/76/shape = SubResource( 1 )
+shapes/76/transform = Matrix32( 1, 0, 0, 1, 584, 296 )
+shapes/76/trigger = false
+shapes/77/shape = SubResource( 1 )
+shapes/77/transform = Matrix32( 1, 0, 0, 1, 568, 296 )
+shapes/77/trigger = false
+shapes/78/shape = SubResource( 1 )
+shapes/78/transform = Matrix32( 1, 0, 0, 1, 552, 296 )
+shapes/78/trigger = false
+shapes/79/shape = SubResource( 1 )
+shapes/79/transform = Matrix32( 1, 0, 0, 1, 536, 296 )
+shapes/79/trigger = false
+shapes/80/shape = SubResource( 1 )
+shapes/80/transform = Matrix32( 1, 0, 0, 1, 520, 296 )
+shapes/80/trigger = false
+shapes/81/shape = SubResource( 1 )
+shapes/81/transform = Matrix32( 1, 0, 0, 1, 504, 296 )
+shapes/81/trigger = false
+shapes/82/shape = SubResource( 1 )
+shapes/82/transform = Matrix32( 1, 0, 0, 1, 488, 296 )
+shapes/82/trigger = false
+shapes/83/shape = SubResource( 1 )
+shapes/83/transform = Matrix32( 1, 0, 0, 1, 472, 296 )
+shapes/83/trigger = false
+shapes/84/shape = SubResource( 1 )
+shapes/84/transform = Matrix32( 1, 0, 0, 1, 456, 296 )
+shapes/84/trigger = false
+shapes/85/shape = SubResource( 1 )
+shapes/85/transform = Matrix32( 1, 0, 0, 1, 440, 296 )
+shapes/85/trigger = false
+shapes/86/shape = SubResource( 1 )
+shapes/86/transform = Matrix32( 1, 0, 0, 1, 424, 296 )
+shapes/86/trigger = false
+shapes/87/shape = SubResource( 1 )
+shapes/87/transform = Matrix32( 1, 0, 0, 1, 408, 296 )
+shapes/87/trigger = false
+shapes/88/shape = SubResource( 1 )
+shapes/88/transform = Matrix32( 1, 0, 0, 1, 392, 296 )
+shapes/88/trigger = false
+shapes/89/shape = SubResource( 1 )
+shapes/89/transform = Matrix32( 1, 0, 0, 1, 376, 296 )
+shapes/89/trigger = false
+shapes/90/shape = SubResource( 1 )
+shapes/90/transform = Matrix32( 1, 0, 0, 1, 360, 296 )
+shapes/90/trigger = false
+shapes/91/shape = SubResource( 1 )
+shapes/91/transform = Matrix32( 1, 0, 0, 1, 344, 296 )
+shapes/91/trigger = false
+shapes/92/shape = SubResource( 1 )
+shapes/92/transform = Matrix32( 1, 0, 0, 1, 328, 296 )
+shapes/92/trigger = false
+shapes/93/shape = SubResource( 1 )
+shapes/93/transform = Matrix32( 1, 0, 0, 1, 312, 296 )
+shapes/93/trigger = false
+shapes/94/shape = SubResource( 1 )
+shapes/94/transform = Matrix32( 1, 0, 0, 1, 296, 296 )
+shapes/94/trigger = false
+shapes/95/shape = SubResource( 1 )
+shapes/95/transform = Matrix32( 1, 0, 0, 1, 280, 296 )
+shapes/95/trigger = false
+shapes/96/shape = SubResource( 1 )
+shapes/96/transform = Matrix32( 1, 0, 0, 1, 264, 296 )
+shapes/96/trigger = false
+shapes/97/shape = SubResource( 1 )
+shapes/97/transform = Matrix32( 1, 0, 0, 1, 248, 296 )
+shapes/97/trigger = false
+shapes/98/shape = SubResource( 1 )
+shapes/98/transform = Matrix32( 1, 0, 0, 1, 232, 296 )
+shapes/98/trigger = false
+shapes/99/shape = SubResource( 1 )
+shapes/99/transform = Matrix32( 1, 0, 0, 1, 56, 296 )
+shapes/99/trigger = false
+shapes/100/shape = SubResource( 1 )
+shapes/100/transform = Matrix32( 1, 0, 0, 1, 72, 296 )
+shapes/100/trigger = false
+shapes/101/shape = SubResource( 1 )
+shapes/101/transform = Matrix32( 1, 0, 0, 1, 216, 296 )
+shapes/101/trigger = false
+shapes/102/shape = SubResource( 1 )
+shapes/102/transform = Matrix32( 1, 0, 0, 1, 88, 296 )
+shapes/102/trigger = false
+shapes/103/shape = SubResource( 1 )
+shapes/103/transform = Matrix32( 1, 0, 0, 1, 200, 296 )
+shapes/103/trigger = false
+shapes/104/shape = SubResource( 1 )
+shapes/104/transform = Matrix32( 1, 0, 0, 1, 104, 296 )
+shapes/104/trigger = false
+shapes/105/shape = SubResource( 1 )
+shapes/105/transform = Matrix32( 1, 0, 0, 1, 184, 296 )
+shapes/105/trigger = false
+shapes/106/shape = SubResource( 1 )
+shapes/106/transform = Matrix32( 1, 0, 0, 1, 120, 296 )
+shapes/106/trigger = false
+shapes/107/shape = SubResource( 1 )
+shapes/107/transform = Matrix32( 1, 0, 0, 1, 136, 296 )
+shapes/107/trigger = false
+shapes/108/shape = SubResource( 1 )
+shapes/108/transform = Matrix32( 1, 0, 0, 1, 152, 296 )
+shapes/108/trigger = false
+shapes/109/shape = SubResource( 1 )
+shapes/109/transform = Matrix32( 1, 0, 0, 1, 168, 296 )
+shapes/109/trigger = false
+shapes/110/shape = SubResource( 1 )
+shapes/110/transform = Matrix32( 1, 0, 0, 1, 520, 40 )
+shapes/110/trigger = false
+shapes/111/shape = SubResource( 1 )
+shapes/111/transform = Matrix32( 1, 0, 0, 1, 536, 40 )
+shapes/111/trigger = false
+shapes/112/shape = SubResource( 1 )
+shapes/112/transform = Matrix32( 1, 0, 0, 1, 552, 40 )
+shapes/112/trigger = false
+shapes/113/shape = SubResource( 1 )
+shapes/113/transform = Matrix32( 1, 0, 0, 1, 568, 40 )
+shapes/113/trigger = false
+shapes/114/shape = SubResource( 1 )
+shapes/114/transform = Matrix32( 1, 0, 0, 1, 584, 40 )
+shapes/114/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 8, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="CollisionShape2D66" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 8, 56 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 1
+
+[node name="CollisionShape2D67" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 8, 72 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 2
+
+[node name="CollisionShape2D68" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 24, 88 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 3
+
+[node name="CollisionShape2D69" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 40, 104 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 4
+
+[node name="CollisionShape2D71" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 40, 120 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 5
+
+[node name="CollisionShape2D72" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 56, 136 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 6
+
+[node name="CollisionShape2D73" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 72, 136 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 7
+
+[node name="CollisionShape2D74" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 72, 152 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 8
+
+[node name="CollisionShape2D75" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 72, 168 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 9
+
+[node name="CollisionShape2D76" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 72, 184 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 10
+
+[node name="CollisionShape2D77" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 72, 200 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 11
+
+[node name="CollisionShape2D78" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 72, 216 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 12
+
+[node name="CollisionShape2D79" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 56, 216 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 13
+
+[node name="CollisionShape2D80" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 40, 216 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 14
+
+[node name="CollisionShape2D81" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 24, 232 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 15
+
+[node name="CollisionShape2D82" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 24, 248 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 16
+
+[node name="CollisionShape2D83" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 24, 264 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 17
+
+[node name="CollisionShape2D84" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 24, 280 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 18
+
+[node name="CollisionShape2D85" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 40, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 19
+
+[node name="CollisionShape2D70" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 40, 88 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 20
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 24, 24 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 21
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 40, 24 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 22
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 56, 24 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 23
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 72, 24 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 24
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 88, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 25
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 88, 56 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 26
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 104, 56 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 27
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 120, 56 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 28
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 136, 56 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 29
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 136, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 30
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 152, 24 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 31
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 168, 24 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 32
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 184, 24 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 33
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 200, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 34
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 200, 56 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 35
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 200, 72 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 36
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 200, 88 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 37
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 216, 88 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 38
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 232, 88 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 39
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 248, 88 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 40
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 264, 88 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 41
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 280, 88 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 42
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 280, 72 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 43
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 280, 56 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 44
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 296, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 45
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 312, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 46
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 328, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 47
+
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 344, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 48
+
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 360, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 49
+
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 376, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 50
+
+[node name="CollisionShape2D35" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 392, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 51
+
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 408, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 52
+
+[node name="CollisionShape2D37" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 424, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 53
+
+[node name="CollisionShape2D38" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 440, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 54
+
+[node name="CollisionShape2D39" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 456, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 55
+
+[node name="CollisionShape2D40" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 472, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 56
+
+[node name="CollisionShape2D41" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 488, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 57
+
+[node name="CollisionShape2D42" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 504, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 58
+
+[node name="CollisionShape2D43" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 600, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 59
+
+[node name="CollisionShape2D50" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 56 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 60
+
+[node name="CollisionShape2D51" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 72 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 61
+
+[node name="CollisionShape2D52" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 88 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 62
+
+[node name="CollisionShape2D53" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 104 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 63
+
+[node name="CollisionShape2D54" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 120 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 64
+
+[node name="CollisionShape2D55" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 136 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 65
+
+[node name="CollisionShape2D56" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 152 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 66
+
+[node name="CollisionShape2D57" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 168 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 67
+
+[node name="CollisionShape2D58" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 184 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 68
+
+[node name="CollisionShape2D59" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 200 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 69
+
+[node name="CollisionShape2D60" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 216 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 70
+
+[node name="CollisionShape2D61" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 232 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 71
+
+[node name="CollisionShape2D62" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 248 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 72
+
+[node name="CollisionShape2D63" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 264 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 73
+
+[node name="CollisionShape2D64" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 616, 280 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 74
+
+[node name="CollisionShape2D65" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 600, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 75
+
+[node name="CollisionShape2D86" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 584, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 76
+
+[node name="CollisionShape2D87" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 568, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 77
+
+[node name="CollisionShape2D88" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 552, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 78
+
+[node name="CollisionShape2D89" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 536, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 79
+
+[node name="CollisionShape2D90" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 520, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 80
+
+[node name="CollisionShape2D91" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 504, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 81
+
+[node name="CollisionShape2D92" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 488, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 82
+
+[node name="CollisionShape2D93" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 472, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 83
+
+[node name="CollisionShape2D94" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 456, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 84
+
+[node name="CollisionShape2D95" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 440, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 85
+
+[node name="CollisionShape2D96" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 424, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 86
+
+[node name="CollisionShape2D97" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 408, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 87
+
+[node name="CollisionShape2D98" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 392, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 88
+
+[node name="CollisionShape2D99" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 376, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 89
+
+[node name="CollisionShape2D100" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 360, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 90
+
+[node name="CollisionShape2D101" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 344, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 91
+
+[node name="CollisionShape2D102" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 328, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 92
+
+[node name="CollisionShape2D103" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 312, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 93
+
+[node name="CollisionShape2D104" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 296, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 94
+
+[node name="CollisionShape2D105" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 280, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 95
+
+[node name="CollisionShape2D106" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 264, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 96
+
+[node name="CollisionShape2D107" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 248, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 97
+
+[node name="CollisionShape2D108" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 232, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 98
+
+[node name="CollisionShape2D109" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 56, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 99
+
+[node name="CollisionShape2D110" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 72, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 100
+
+[node name="CollisionShape2D111" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 216, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 101
+
+[node name="CollisionShape2D112" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 88, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 102
+
+[node name="CollisionShape2D113" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 200, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 103
+
+[node name="CollisionShape2D114" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 104, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 104
+
+[node name="CollisionShape2D115" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 184, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 105
+
+[node name="CollisionShape2D116" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 120, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 106
+
+[node name="CollisionShape2D117" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 136, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 107
+
+[node name="CollisionShape2D118" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 152, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 108
+
+[node name="CollisionShape2D119" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 168, 296 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 109
+
+[node name="CollisionShape2D44" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 520, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 110
+
+[node name="CollisionShape2D45" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 536, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 111
+
+[node name="CollisionShape2D46" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 552, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 112
+
+[node name="CollisionShape2D47" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 568, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 113
+
+[node name="CollisionShape2D48" type="CollisionShape2D" parent="Control/StaticBody2D"]
+
+transform/pos = Vector2( 584, 40 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 114
+
+[node name="LadderArea2D" type="Area2D" parent="Control"]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 592, 272 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/LadderArea2D"]
+
+transform/pos = Vector2( 592, 272 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="KinematicBody2D" parent="Control" instance=ExtResource( 3 )]
+
+[node name="KinematicBody2D1" parent="Control" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 456, 144 )
+
+[node name="KinematicBody2D2" parent="Control" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 456, 192 )
+
+[node name="KinematicBody2D3" parent="Control" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 400, 240 )
+
+[node name="KinematicBody2D4" parent="Control" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 336, 216 )
+
+[node name="KinematicBody2D5" parent="Control" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 392, 160 )
+
+[node name="KinematicBody2D6" parent="Control" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 416, 200 )
+
+[node name="KinematicBody2D 2" parent="Control" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 24, 40 )
+
+[node name="GUIFrame" type="ColorFrame" parent="."]
+
+editor/display_folded = true
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -256.0
+margin/right = -576.0
+margin/bottom = -416.0
+color = Color( 0.156863, 0.129412, 0.2, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="GUIFrame"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 16.0
+margin/top = 0.0
+margin/right = 16.0
+margin/bottom = 16.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TabContainer" type="TabContainer" parent="GUIFrame/PanelContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 7.0
+margin/top = 7.0
+margin/right = 601.0
+margin/bottom = 137.0
+tab_align = 0
+tabs_visible = true
+
+[node name="Items" type="GridContainer" parent="GUIFrame/PanelContainer/TabContainer"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 4.0
+margin/top = 32.0
+margin/right = 4.0
+margin/bottom = 4.0
+columns = 4
+
+[node name="Items1" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 16.0
+margin/bottom = 16.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items2" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 0.0
+margin/right = 36.0
+margin/bottom = 16.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items3" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 40.0
+margin/top = 0.0
+margin/right = 56.0
+margin/bottom = 16.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items4" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 60.0
+margin/top = 0.0
+margin/right = 76.0
+margin/bottom = 16.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items5" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 20.0
+margin/right = 16.0
+margin/bottom = 36.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items6" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 20.0
+margin/right = 36.0
+margin/bottom = 36.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items7" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 40.0
+margin/top = 20.0
+margin/right = 56.0
+margin/bottom = 36.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items8" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 60.0
+margin/top = 20.0
+margin/right = 76.0
+margin/bottom = 36.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items9" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 40.0
+margin/right = 16.0
+margin/bottom = 56.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items10" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 40.0
+margin/right = 36.0
+margin/bottom = 56.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items11" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 40.0
+margin/top = 40.0
+margin/right = 56.0
+margin/bottom = 56.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items12" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 60.0
+margin/top = 40.0
+margin/right = 76.0
+margin/bottom = 56.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items13" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 60.0
+margin/right = 16.0
+margin/bottom = 76.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items14" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 60.0
+margin/right = 36.0
+margin/bottom = 76.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items15" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 40.0
+margin/top = 60.0
+margin/right = 56.0
+margin/bottom = 76.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Items16" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
+
+rect/min_size = Vector2( 8, 8 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 60.0
+margin/top = 60.0
+margin/right = 76.0
+margin/bottom = 76.0
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="Upgrades" type="HBoxContainer" parent="GUIFrame/PanelContainer/TabContainer"]
+
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 4.0
+margin/top = 32.0
+margin/right = 4.0
+margin/bottom = 4.0
+alignment = 0
+
+[node name="Summons" type="HBoxContainer" parent="GUIFrame/PanelContainer/TabContainer"]
+
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 4.0
+margin/top = 32.0
+margin/right = 4.0
+margin/bottom = 4.0
+alignment = 0
+
+[node name="ManaBG" type="ColorFrame" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 16.0
+margin/top = 304.0
+margin/right = 400.0
+margin/bottom = 320.0
+color = Color( 0, 0, 1, 0.501961 )
+
+[node name="ManaBar" type="ColorFrame" parent="ManaBG"]
+
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 368.0
+margin/bottom = 0.0
+color = Color( 0, 0, 1, 0.501961 )
+
+[node name="ManaLabel" type="Label" parent="ManaBG"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 14.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Mana"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ProgressBG" type="ColorFrame" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 416.0
+margin/top = 304.0
+margin/right = 544.0
+margin/bottom = 320.0
+color = Color( 1, 1, 0, 0.25098 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ProgressBar" type="ColorFrame" parent="ProgressBG"]
+
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 96.0
+margin/bottom = 0.0
+color = Color( 1, 1, 0, 0.501961 )
+
+[node name="ProgressLabel" type="Label" parent="ProgressBG"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 91.0
+margin/bottom = 14.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Progress: %75"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="GoldLabel" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 560.0
+margin/top = 304.0
+margin/right = 622.0
+margin/bottom = 318.0
+custom_colors/font_color = Color( 1, 1, 0.67451, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Gold: 100"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="input_event" from="Control" to="Control" method="_on_Control_input_event"]
+
+
