@@ -1,17 +1,29 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=11 format=1]
 
-[ext_resource path="res://Scripts/dungeon_map.gd" type="Script" id=1]
-[ext_resource path="res://Tiles/tiles.tres" type="TileSet" id=2]
-[ext_resource path="res://Scenes/EnemyMinion.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/HeroMinion.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Textures/icon.tex" type="Texture" id=5]
+[ext_resource path="res://Fonts/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/dungeon_map.gd" type="Script" id=2]
+[ext_resource path="res://Tiles/tiles.tres" type="TileSet" id=3]
+[ext_resource path="res://Scenes/EnemyMinion.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/HeroMinion.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Textures/icon.tex" type="Texture" id=6]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 16
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+
+default_font = SubResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
@@ -20,18 +32,20 @@ extents = Vector2( 8, 8 )
 
 [node name="Control" type="ColorFrame" parent="."]
 
+editor/display_folded = true
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+theme/theme = SubResource( 2 )
 margin/left = 0.0
 margin/top = 0.0
 margin/right = -576.0
 margin/bottom = -256.0
 color = Color( 0.568627, 0.690196, 0.603922, 1 )
-script/script = ExtResource( 1 )
+script/script = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -39,7 +53,7 @@ __meta__ = {
 [node name="TileMap" type="TileMap" parent="Control"]
 
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -58,349 +72,349 @@ tile_data = IntArray( 0, 50, 1, 60, 2, 60, 3, 60, 4, 60, 5, 70, 6, 11, 7, 11, 8,
 
 editor/display_folded = true
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 8, 40 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 1 )
+shapes/1/shape = SubResource( 3 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, 8, 56 )
 shapes/1/trigger = false
-shapes/2/shape = SubResource( 1 )
+shapes/2/shape = SubResource( 3 )
 shapes/2/transform = Matrix32( 1, 0, 0, 1, 8, 72 )
 shapes/2/trigger = false
-shapes/3/shape = SubResource( 1 )
+shapes/3/shape = SubResource( 3 )
 shapes/3/transform = Matrix32( 1, 0, 0, 1, 24, 88 )
 shapes/3/trigger = false
-shapes/4/shape = SubResource( 1 )
+shapes/4/shape = SubResource( 3 )
 shapes/4/transform = Matrix32( 1, 0, 0, 1, 40, 104 )
 shapes/4/trigger = false
-shapes/5/shape = SubResource( 1 )
+shapes/5/shape = SubResource( 3 )
 shapes/5/transform = Matrix32( 1, 0, 0, 1, 40, 120 )
 shapes/5/trigger = false
-shapes/6/shape = SubResource( 1 )
+shapes/6/shape = SubResource( 3 )
 shapes/6/transform = Matrix32( 1, 0, 0, 1, 56, 136 )
 shapes/6/trigger = false
-shapes/7/shape = SubResource( 1 )
+shapes/7/shape = SubResource( 3 )
 shapes/7/transform = Matrix32( 1, 0, 0, 1, 72, 136 )
 shapes/7/trigger = false
-shapes/8/shape = SubResource( 1 )
+shapes/8/shape = SubResource( 3 )
 shapes/8/transform = Matrix32( 1, 0, 0, 1, 72, 152 )
 shapes/8/trigger = false
-shapes/9/shape = SubResource( 1 )
+shapes/9/shape = SubResource( 3 )
 shapes/9/transform = Matrix32( 1, 0, 0, 1, 72, 168 )
 shapes/9/trigger = false
-shapes/10/shape = SubResource( 1 )
+shapes/10/shape = SubResource( 3 )
 shapes/10/transform = Matrix32( 1, 0, 0, 1, 72, 184 )
 shapes/10/trigger = false
-shapes/11/shape = SubResource( 1 )
+shapes/11/shape = SubResource( 3 )
 shapes/11/transform = Matrix32( 1, 0, 0, 1, 72, 200 )
 shapes/11/trigger = false
-shapes/12/shape = SubResource( 1 )
+shapes/12/shape = SubResource( 3 )
 shapes/12/transform = Matrix32( 1, 0, 0, 1, 72, 216 )
 shapes/12/trigger = false
-shapes/13/shape = SubResource( 1 )
+shapes/13/shape = SubResource( 3 )
 shapes/13/transform = Matrix32( 1, 0, 0, 1, 56, 216 )
 shapes/13/trigger = false
-shapes/14/shape = SubResource( 1 )
+shapes/14/shape = SubResource( 3 )
 shapes/14/transform = Matrix32( 1, 0, 0, 1, 40, 216 )
 shapes/14/trigger = false
-shapes/15/shape = SubResource( 1 )
+shapes/15/shape = SubResource( 3 )
 shapes/15/transform = Matrix32( 1, 0, 0, 1, 24, 232 )
 shapes/15/trigger = false
-shapes/16/shape = SubResource( 1 )
+shapes/16/shape = SubResource( 3 )
 shapes/16/transform = Matrix32( 1, 0, 0, 1, 24, 248 )
 shapes/16/trigger = false
-shapes/17/shape = SubResource( 1 )
+shapes/17/shape = SubResource( 3 )
 shapes/17/transform = Matrix32( 1, 0, 0, 1, 24, 264 )
 shapes/17/trigger = false
-shapes/18/shape = SubResource( 1 )
+shapes/18/shape = SubResource( 3 )
 shapes/18/transform = Matrix32( 1, 0, 0, 1, 24, 280 )
 shapes/18/trigger = false
-shapes/19/shape = SubResource( 1 )
+shapes/19/shape = SubResource( 3 )
 shapes/19/transform = Matrix32( 1, 0, 0, 1, 40, 296 )
 shapes/19/trigger = false
-shapes/20/shape = SubResource( 1 )
+shapes/20/shape = SubResource( 3 )
 shapes/20/transform = Matrix32( 1, 0, 0, 1, 40, 88 )
 shapes/20/trigger = false
-shapes/21/shape = SubResource( 1 )
+shapes/21/shape = SubResource( 3 )
 shapes/21/transform = Matrix32( 1, 0, 0, 1, 24, 24 )
 shapes/21/trigger = false
-shapes/22/shape = SubResource( 1 )
+shapes/22/shape = SubResource( 3 )
 shapes/22/transform = Matrix32( 1, 0, 0, 1, 40, 24 )
 shapes/22/trigger = false
-shapes/23/shape = SubResource( 1 )
+shapes/23/shape = SubResource( 3 )
 shapes/23/transform = Matrix32( 1, 0, 0, 1, 56, 24 )
 shapes/23/trigger = false
-shapes/24/shape = SubResource( 1 )
+shapes/24/shape = SubResource( 3 )
 shapes/24/transform = Matrix32( 1, 0, 0, 1, 72, 24 )
 shapes/24/trigger = false
-shapes/25/shape = SubResource( 1 )
+shapes/25/shape = SubResource( 3 )
 shapes/25/transform = Matrix32( 1, 0, 0, 1, 88, 40 )
 shapes/25/trigger = false
-shapes/26/shape = SubResource( 1 )
+shapes/26/shape = SubResource( 3 )
 shapes/26/transform = Matrix32( 1, 0, 0, 1, 88, 56 )
 shapes/26/trigger = false
-shapes/27/shape = SubResource( 1 )
+shapes/27/shape = SubResource( 3 )
 shapes/27/transform = Matrix32( 1, 0, 0, 1, 104, 56 )
 shapes/27/trigger = false
-shapes/28/shape = SubResource( 1 )
+shapes/28/shape = SubResource( 3 )
 shapes/28/transform = Matrix32( 1, 0, 0, 1, 120, 56 )
 shapes/28/trigger = false
-shapes/29/shape = SubResource( 1 )
+shapes/29/shape = SubResource( 3 )
 shapes/29/transform = Matrix32( 1, 0, 0, 1, 136, 56 )
 shapes/29/trigger = false
-shapes/30/shape = SubResource( 1 )
+shapes/30/shape = SubResource( 3 )
 shapes/30/transform = Matrix32( 1, 0, 0, 1, 136, 40 )
 shapes/30/trigger = false
-shapes/31/shape = SubResource( 1 )
+shapes/31/shape = SubResource( 3 )
 shapes/31/transform = Matrix32( 1, 0, 0, 1, 152, 24 )
 shapes/31/trigger = false
-shapes/32/shape = SubResource( 1 )
+shapes/32/shape = SubResource( 3 )
 shapes/32/transform = Matrix32( 1, 0, 0, 1, 168, 24 )
 shapes/32/trigger = false
-shapes/33/shape = SubResource( 1 )
+shapes/33/shape = SubResource( 3 )
 shapes/33/transform = Matrix32( 1, 0, 0, 1, 184, 24 )
 shapes/33/trigger = false
-shapes/34/shape = SubResource( 1 )
+shapes/34/shape = SubResource( 3 )
 shapes/34/transform = Matrix32( 1, 0, 0, 1, 200, 40 )
 shapes/34/trigger = false
-shapes/35/shape = SubResource( 1 )
+shapes/35/shape = SubResource( 3 )
 shapes/35/transform = Matrix32( 1, 0, 0, 1, 200, 56 )
 shapes/35/trigger = false
-shapes/36/shape = SubResource( 1 )
+shapes/36/shape = SubResource( 3 )
 shapes/36/transform = Matrix32( 1, 0, 0, 1, 200, 72 )
 shapes/36/trigger = false
-shapes/37/shape = SubResource( 1 )
+shapes/37/shape = SubResource( 3 )
 shapes/37/transform = Matrix32( 1, 0, 0, 1, 200, 88 )
 shapes/37/trigger = false
-shapes/38/shape = SubResource( 1 )
+shapes/38/shape = SubResource( 3 )
 shapes/38/transform = Matrix32( 1, 0, 0, 1, 216, 88 )
 shapes/38/trigger = false
-shapes/39/shape = SubResource( 1 )
+shapes/39/shape = SubResource( 3 )
 shapes/39/transform = Matrix32( 1, 0, 0, 1, 232, 88 )
 shapes/39/trigger = false
-shapes/40/shape = SubResource( 1 )
+shapes/40/shape = SubResource( 3 )
 shapes/40/transform = Matrix32( 1, 0, 0, 1, 248, 88 )
 shapes/40/trigger = false
-shapes/41/shape = SubResource( 1 )
+shapes/41/shape = SubResource( 3 )
 shapes/41/transform = Matrix32( 1, 0, 0, 1, 264, 88 )
 shapes/41/trigger = false
-shapes/42/shape = SubResource( 1 )
+shapes/42/shape = SubResource( 3 )
 shapes/42/transform = Matrix32( 1, 0, 0, 1, 280, 88 )
 shapes/42/trigger = false
-shapes/43/shape = SubResource( 1 )
+shapes/43/shape = SubResource( 3 )
 shapes/43/transform = Matrix32( 1, 0, 0, 1, 280, 72 )
 shapes/43/trigger = false
-shapes/44/shape = SubResource( 1 )
+shapes/44/shape = SubResource( 3 )
 shapes/44/transform = Matrix32( 1, 0, 0, 1, 280, 56 )
 shapes/44/trigger = false
-shapes/45/shape = SubResource( 1 )
+shapes/45/shape = SubResource( 3 )
 shapes/45/transform = Matrix32( 1, 0, 0, 1, 296, 40 )
 shapes/45/trigger = false
-shapes/46/shape = SubResource( 1 )
+shapes/46/shape = SubResource( 3 )
 shapes/46/transform = Matrix32( 1, 0, 0, 1, 312, 40 )
 shapes/46/trigger = false
-shapes/47/shape = SubResource( 1 )
+shapes/47/shape = SubResource( 3 )
 shapes/47/transform = Matrix32( 1, 0, 0, 1, 328, 40 )
 shapes/47/trigger = false
-shapes/48/shape = SubResource( 1 )
+shapes/48/shape = SubResource( 3 )
 shapes/48/transform = Matrix32( 1, 0, 0, 1, 344, 40 )
 shapes/48/trigger = false
-shapes/49/shape = SubResource( 1 )
+shapes/49/shape = SubResource( 3 )
 shapes/49/transform = Matrix32( 1, 0, 0, 1, 360, 40 )
 shapes/49/trigger = false
-shapes/50/shape = SubResource( 1 )
+shapes/50/shape = SubResource( 3 )
 shapes/50/transform = Matrix32( 1, 0, 0, 1, 376, 40 )
 shapes/50/trigger = false
-shapes/51/shape = SubResource( 1 )
+shapes/51/shape = SubResource( 3 )
 shapes/51/transform = Matrix32( 1, 0, 0, 1, 392, 40 )
 shapes/51/trigger = false
-shapes/52/shape = SubResource( 1 )
+shapes/52/shape = SubResource( 3 )
 shapes/52/transform = Matrix32( 1, 0, 0, 1, 408, 40 )
 shapes/52/trigger = false
-shapes/53/shape = SubResource( 1 )
+shapes/53/shape = SubResource( 3 )
 shapes/53/transform = Matrix32( 1, 0, 0, 1, 424, 40 )
 shapes/53/trigger = false
-shapes/54/shape = SubResource( 1 )
+shapes/54/shape = SubResource( 3 )
 shapes/54/transform = Matrix32( 1, 0, 0, 1, 440, 40 )
 shapes/54/trigger = false
-shapes/55/shape = SubResource( 1 )
+shapes/55/shape = SubResource( 3 )
 shapes/55/transform = Matrix32( 1, 0, 0, 1, 456, 40 )
 shapes/55/trigger = false
-shapes/56/shape = SubResource( 1 )
+shapes/56/shape = SubResource( 3 )
 shapes/56/transform = Matrix32( 1, 0, 0, 1, 472, 40 )
 shapes/56/trigger = false
-shapes/57/shape = SubResource( 1 )
+shapes/57/shape = SubResource( 3 )
 shapes/57/transform = Matrix32( 1, 0, 0, 1, 488, 40 )
 shapes/57/trigger = false
-shapes/58/shape = SubResource( 1 )
+shapes/58/shape = SubResource( 3 )
 shapes/58/transform = Matrix32( 1, 0, 0, 1, 504, 40 )
 shapes/58/trigger = false
-shapes/59/shape = SubResource( 1 )
+shapes/59/shape = SubResource( 3 )
 shapes/59/transform = Matrix32( 1, 0, 0, 1, 600, 40 )
 shapes/59/trigger = false
-shapes/60/shape = SubResource( 1 )
+shapes/60/shape = SubResource( 3 )
 shapes/60/transform = Matrix32( 1, 0, 0, 1, 616, 56 )
 shapes/60/trigger = false
-shapes/61/shape = SubResource( 1 )
+shapes/61/shape = SubResource( 3 )
 shapes/61/transform = Matrix32( 1, 0, 0, 1, 616, 72 )
 shapes/61/trigger = false
-shapes/62/shape = SubResource( 1 )
+shapes/62/shape = SubResource( 3 )
 shapes/62/transform = Matrix32( 1, 0, 0, 1, 616, 88 )
 shapes/62/trigger = false
-shapes/63/shape = SubResource( 1 )
+shapes/63/shape = SubResource( 3 )
 shapes/63/transform = Matrix32( 1, 0, 0, 1, 616, 104 )
 shapes/63/trigger = false
-shapes/64/shape = SubResource( 1 )
+shapes/64/shape = SubResource( 3 )
 shapes/64/transform = Matrix32( 1, 0, 0, 1, 616, 120 )
 shapes/64/trigger = false
-shapes/65/shape = SubResource( 1 )
+shapes/65/shape = SubResource( 3 )
 shapes/65/transform = Matrix32( 1, 0, 0, 1, 616, 136 )
 shapes/65/trigger = false
-shapes/66/shape = SubResource( 1 )
+shapes/66/shape = SubResource( 3 )
 shapes/66/transform = Matrix32( 1, 0, 0, 1, 616, 152 )
 shapes/66/trigger = false
-shapes/67/shape = SubResource( 1 )
+shapes/67/shape = SubResource( 3 )
 shapes/67/transform = Matrix32( 1, 0, 0, 1, 616, 168 )
 shapes/67/trigger = false
-shapes/68/shape = SubResource( 1 )
+shapes/68/shape = SubResource( 3 )
 shapes/68/transform = Matrix32( 1, 0, 0, 1, 616, 184 )
 shapes/68/trigger = false
-shapes/69/shape = SubResource( 1 )
+shapes/69/shape = SubResource( 3 )
 shapes/69/transform = Matrix32( 1, 0, 0, 1, 616, 200 )
 shapes/69/trigger = false
-shapes/70/shape = SubResource( 1 )
+shapes/70/shape = SubResource( 3 )
 shapes/70/transform = Matrix32( 1, 0, 0, 1, 616, 216 )
 shapes/70/trigger = false
-shapes/71/shape = SubResource( 1 )
+shapes/71/shape = SubResource( 3 )
 shapes/71/transform = Matrix32( 1, 0, 0, 1, 616, 232 )
 shapes/71/trigger = false
-shapes/72/shape = SubResource( 1 )
+shapes/72/shape = SubResource( 3 )
 shapes/72/transform = Matrix32( 1, 0, 0, 1, 616, 248 )
 shapes/72/trigger = false
-shapes/73/shape = SubResource( 1 )
+shapes/73/shape = SubResource( 3 )
 shapes/73/transform = Matrix32( 1, 0, 0, 1, 616, 264 )
 shapes/73/trigger = false
-shapes/74/shape = SubResource( 1 )
+shapes/74/shape = SubResource( 3 )
 shapes/74/transform = Matrix32( 1, 0, 0, 1, 616, 280 )
 shapes/74/trigger = false
-shapes/75/shape = SubResource( 1 )
+shapes/75/shape = SubResource( 3 )
 shapes/75/transform = Matrix32( 1, 0, 0, 1, 600, 296 )
 shapes/75/trigger = false
-shapes/76/shape = SubResource( 1 )
+shapes/76/shape = SubResource( 3 )
 shapes/76/transform = Matrix32( 1, 0, 0, 1, 584, 296 )
 shapes/76/trigger = false
-shapes/77/shape = SubResource( 1 )
+shapes/77/shape = SubResource( 3 )
 shapes/77/transform = Matrix32( 1, 0, 0, 1, 568, 296 )
 shapes/77/trigger = false
-shapes/78/shape = SubResource( 1 )
+shapes/78/shape = SubResource( 3 )
 shapes/78/transform = Matrix32( 1, 0, 0, 1, 552, 296 )
 shapes/78/trigger = false
-shapes/79/shape = SubResource( 1 )
+shapes/79/shape = SubResource( 3 )
 shapes/79/transform = Matrix32( 1, 0, 0, 1, 536, 296 )
 shapes/79/trigger = false
-shapes/80/shape = SubResource( 1 )
+shapes/80/shape = SubResource( 3 )
 shapes/80/transform = Matrix32( 1, 0, 0, 1, 520, 296 )
 shapes/80/trigger = false
-shapes/81/shape = SubResource( 1 )
+shapes/81/shape = SubResource( 3 )
 shapes/81/transform = Matrix32( 1, 0, 0, 1, 504, 296 )
 shapes/81/trigger = false
-shapes/82/shape = SubResource( 1 )
+shapes/82/shape = SubResource( 3 )
 shapes/82/transform = Matrix32( 1, 0, 0, 1, 488, 296 )
 shapes/82/trigger = false
-shapes/83/shape = SubResource( 1 )
+shapes/83/shape = SubResource( 3 )
 shapes/83/transform = Matrix32( 1, 0, 0, 1, 472, 296 )
 shapes/83/trigger = false
-shapes/84/shape = SubResource( 1 )
+shapes/84/shape = SubResource( 3 )
 shapes/84/transform = Matrix32( 1, 0, 0, 1, 456, 296 )
 shapes/84/trigger = false
-shapes/85/shape = SubResource( 1 )
+shapes/85/shape = SubResource( 3 )
 shapes/85/transform = Matrix32( 1, 0, 0, 1, 440, 296 )
 shapes/85/trigger = false
-shapes/86/shape = SubResource( 1 )
+shapes/86/shape = SubResource( 3 )
 shapes/86/transform = Matrix32( 1, 0, 0, 1, 424, 296 )
 shapes/86/trigger = false
-shapes/87/shape = SubResource( 1 )
+shapes/87/shape = SubResource( 3 )
 shapes/87/transform = Matrix32( 1, 0, 0, 1, 408, 296 )
 shapes/87/trigger = false
-shapes/88/shape = SubResource( 1 )
+shapes/88/shape = SubResource( 3 )
 shapes/88/transform = Matrix32( 1, 0, 0, 1, 392, 296 )
 shapes/88/trigger = false
-shapes/89/shape = SubResource( 1 )
+shapes/89/shape = SubResource( 3 )
 shapes/89/transform = Matrix32( 1, 0, 0, 1, 376, 296 )
 shapes/89/trigger = false
-shapes/90/shape = SubResource( 1 )
+shapes/90/shape = SubResource( 3 )
 shapes/90/transform = Matrix32( 1, 0, 0, 1, 360, 296 )
 shapes/90/trigger = false
-shapes/91/shape = SubResource( 1 )
+shapes/91/shape = SubResource( 3 )
 shapes/91/transform = Matrix32( 1, 0, 0, 1, 344, 296 )
 shapes/91/trigger = false
-shapes/92/shape = SubResource( 1 )
+shapes/92/shape = SubResource( 3 )
 shapes/92/transform = Matrix32( 1, 0, 0, 1, 328, 296 )
 shapes/92/trigger = false
-shapes/93/shape = SubResource( 1 )
+shapes/93/shape = SubResource( 3 )
 shapes/93/transform = Matrix32( 1, 0, 0, 1, 312, 296 )
 shapes/93/trigger = false
-shapes/94/shape = SubResource( 1 )
+shapes/94/shape = SubResource( 3 )
 shapes/94/transform = Matrix32( 1, 0, 0, 1, 296, 296 )
 shapes/94/trigger = false
-shapes/95/shape = SubResource( 1 )
+shapes/95/shape = SubResource( 3 )
 shapes/95/transform = Matrix32( 1, 0, 0, 1, 280, 296 )
 shapes/95/trigger = false
-shapes/96/shape = SubResource( 1 )
+shapes/96/shape = SubResource( 3 )
 shapes/96/transform = Matrix32( 1, 0, 0, 1, 264, 296 )
 shapes/96/trigger = false
-shapes/97/shape = SubResource( 1 )
+shapes/97/shape = SubResource( 3 )
 shapes/97/transform = Matrix32( 1, 0, 0, 1, 248, 296 )
 shapes/97/trigger = false
-shapes/98/shape = SubResource( 1 )
+shapes/98/shape = SubResource( 3 )
 shapes/98/transform = Matrix32( 1, 0, 0, 1, 232, 296 )
 shapes/98/trigger = false
-shapes/99/shape = SubResource( 1 )
+shapes/99/shape = SubResource( 3 )
 shapes/99/transform = Matrix32( 1, 0, 0, 1, 56, 296 )
 shapes/99/trigger = false
-shapes/100/shape = SubResource( 1 )
+shapes/100/shape = SubResource( 3 )
 shapes/100/transform = Matrix32( 1, 0, 0, 1, 72, 296 )
 shapes/100/trigger = false
-shapes/101/shape = SubResource( 1 )
+shapes/101/shape = SubResource( 3 )
 shapes/101/transform = Matrix32( 1, 0, 0, 1, 216, 296 )
 shapes/101/trigger = false
-shapes/102/shape = SubResource( 1 )
+shapes/102/shape = SubResource( 3 )
 shapes/102/transform = Matrix32( 1, 0, 0, 1, 88, 296 )
 shapes/102/trigger = false
-shapes/103/shape = SubResource( 1 )
+shapes/103/shape = SubResource( 3 )
 shapes/103/transform = Matrix32( 1, 0, 0, 1, 200, 296 )
 shapes/103/trigger = false
-shapes/104/shape = SubResource( 1 )
+shapes/104/shape = SubResource( 3 )
 shapes/104/transform = Matrix32( 1, 0, 0, 1, 104, 296 )
 shapes/104/trigger = false
-shapes/105/shape = SubResource( 1 )
+shapes/105/shape = SubResource( 3 )
 shapes/105/transform = Matrix32( 1, 0, 0, 1, 184, 296 )
 shapes/105/trigger = false
-shapes/106/shape = SubResource( 1 )
+shapes/106/shape = SubResource( 3 )
 shapes/106/transform = Matrix32( 1, 0, 0, 1, 120, 296 )
 shapes/106/trigger = false
-shapes/107/shape = SubResource( 1 )
+shapes/107/shape = SubResource( 3 )
 shapes/107/transform = Matrix32( 1, 0, 0, 1, 136, 296 )
 shapes/107/trigger = false
-shapes/108/shape = SubResource( 1 )
+shapes/108/shape = SubResource( 3 )
 shapes/108/transform = Matrix32( 1, 0, 0, 1, 152, 296 )
 shapes/108/trigger = false
-shapes/109/shape = SubResource( 1 )
+shapes/109/shape = SubResource( 3 )
 shapes/109/transform = Matrix32( 1, 0, 0, 1, 168, 296 )
 shapes/109/trigger = false
-shapes/110/shape = SubResource( 1 )
+shapes/110/shape = SubResource( 3 )
 shapes/110/transform = Matrix32( 1, 0, 0, 1, 520, 40 )
 shapes/110/trigger = false
-shapes/111/shape = SubResource( 1 )
+shapes/111/shape = SubResource( 3 )
 shapes/111/transform = Matrix32( 1, 0, 0, 1, 536, 40 )
 shapes/111/trigger = false
-shapes/112/shape = SubResource( 1 )
+shapes/112/shape = SubResource( 3 )
 shapes/112/transform = Matrix32( 1, 0, 0, 1, 552, 40 )
 shapes/112/trigger = false
-shapes/113/shape = SubResource( 1 )
+shapes/113/shape = SubResource( 3 )
 shapes/113/transform = Matrix32( 1, 0, 0, 1, 568, 40 )
 shapes/113/trigger = false
-shapes/114/shape = SubResource( 1 )
+shapes/114/shape = SubResource( 3 )
 shapes/114/transform = Matrix32( 1, 0, 0, 1, 584, 40 )
 shapes/114/trigger = false
 collision/layers = 1
@@ -413,805 +427,805 @@ bounce = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 8, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
 [node name="CollisionShape2D66" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 8, 56 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 1
 
 [node name="CollisionShape2D67" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 8, 72 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 2
 
 [node name="CollisionShape2D68" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 24, 88 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 3
 
 [node name="CollisionShape2D69" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 40, 104 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 4
 
 [node name="CollisionShape2D71" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 40, 120 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 5
 
 [node name="CollisionShape2D72" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 56, 136 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 6
 
 [node name="CollisionShape2D73" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 72, 136 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 7
 
 [node name="CollisionShape2D74" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 72, 152 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 8
 
 [node name="CollisionShape2D75" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 72, 168 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 9
 
 [node name="CollisionShape2D76" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 72, 184 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 10
 
 [node name="CollisionShape2D77" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 72, 200 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 11
 
 [node name="CollisionShape2D78" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 72, 216 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 12
 
 [node name="CollisionShape2D79" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 56, 216 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 13
 
 [node name="CollisionShape2D80" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 40, 216 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 14
 
 [node name="CollisionShape2D81" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 24, 232 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 15
 
 [node name="CollisionShape2D82" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 24, 248 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 16
 
 [node name="CollisionShape2D83" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 24, 264 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 17
 
 [node name="CollisionShape2D84" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 24, 280 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 18
 
 [node name="CollisionShape2D85" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 40, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 19
 
 [node name="CollisionShape2D70" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 40, 88 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 20
 
 [node name="CollisionShape2D1" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 24, 24 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 21
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 40, 24 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 22
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 56, 24 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 23
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 72, 24 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 24
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 88, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 25
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 88, 56 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 26
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 104, 56 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 27
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 120, 56 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 28
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 136, 56 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 29
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 136, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 30
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 152, 24 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 31
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 168, 24 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 32
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 184, 24 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 33
 
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 200, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 34
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 200, 56 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 35
 
 [node name="CollisionShape2D19" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 200, 72 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 36
 
 [node name="CollisionShape2D20" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 200, 88 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 37
 
 [node name="CollisionShape2D21" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 216, 88 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 38
 
 [node name="CollisionShape2D22" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 232, 88 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 39
 
 [node name="CollisionShape2D23" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 248, 88 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 40
 
 [node name="CollisionShape2D24" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 264, 88 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 41
 
 [node name="CollisionShape2D25" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 280, 88 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 42
 
 [node name="CollisionShape2D26" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 280, 72 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 43
 
 [node name="CollisionShape2D27" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 280, 56 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 44
 
 [node name="CollisionShape2D29" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 296, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 45
 
 [node name="CollisionShape2D30" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 312, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 46
 
 [node name="CollisionShape2D31" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 328, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 47
 
 [node name="CollisionShape2D32" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 344, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 48
 
 [node name="CollisionShape2D33" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 360, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 49
 
 [node name="CollisionShape2D34" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 376, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 50
 
 [node name="CollisionShape2D35" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 392, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 51
 
 [node name="CollisionShape2D36" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 408, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 52
 
 [node name="CollisionShape2D37" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 424, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 53
 
 [node name="CollisionShape2D38" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 440, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 54
 
 [node name="CollisionShape2D39" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 456, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 55
 
 [node name="CollisionShape2D40" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 472, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 56
 
 [node name="CollisionShape2D41" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 488, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 57
 
 [node name="CollisionShape2D42" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 504, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 58
 
 [node name="CollisionShape2D43" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 600, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 59
 
 [node name="CollisionShape2D50" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 56 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 60
 
 [node name="CollisionShape2D51" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 72 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 61
 
 [node name="CollisionShape2D52" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 88 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 62
 
 [node name="CollisionShape2D53" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 104 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 63
 
 [node name="CollisionShape2D54" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 120 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 64
 
 [node name="CollisionShape2D55" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 136 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 65
 
 [node name="CollisionShape2D56" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 152 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 66
 
 [node name="CollisionShape2D57" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 168 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 67
 
 [node name="CollisionShape2D58" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 184 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 68
 
 [node name="CollisionShape2D59" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 200 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 69
 
 [node name="CollisionShape2D60" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 216 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 70
 
 [node name="CollisionShape2D61" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 232 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 71
 
 [node name="CollisionShape2D62" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 248 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 72
 
 [node name="CollisionShape2D63" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 264 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 73
 
 [node name="CollisionShape2D64" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 616, 280 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 74
 
 [node name="CollisionShape2D65" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 600, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 75
 
 [node name="CollisionShape2D86" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 584, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 76
 
 [node name="CollisionShape2D87" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 568, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 77
 
 [node name="CollisionShape2D88" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 552, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 78
 
 [node name="CollisionShape2D89" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 536, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 79
 
 [node name="CollisionShape2D90" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 520, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 80
 
 [node name="CollisionShape2D91" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 504, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 81
 
 [node name="CollisionShape2D92" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 488, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 82
 
 [node name="CollisionShape2D93" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 472, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 83
 
 [node name="CollisionShape2D94" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 456, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 84
 
 [node name="CollisionShape2D95" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 440, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 85
 
 [node name="CollisionShape2D96" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 424, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 86
 
 [node name="CollisionShape2D97" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 408, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 87
 
 [node name="CollisionShape2D98" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 392, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 88
 
 [node name="CollisionShape2D99" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 376, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 89
 
 [node name="CollisionShape2D100" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 360, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 90
 
 [node name="CollisionShape2D101" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 344, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 91
 
 [node name="CollisionShape2D102" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 328, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 92
 
 [node name="CollisionShape2D103" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 312, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 93
 
 [node name="CollisionShape2D104" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 296, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 94
 
 [node name="CollisionShape2D105" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 280, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 95
 
 [node name="CollisionShape2D106" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 264, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 96
 
 [node name="CollisionShape2D107" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 248, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 97
 
 [node name="CollisionShape2D108" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 232, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 98
 
 [node name="CollisionShape2D109" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 56, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 99
 
 [node name="CollisionShape2D110" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 72, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 100
 
 [node name="CollisionShape2D111" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 216, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 101
 
 [node name="CollisionShape2D112" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 88, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 102
 
 [node name="CollisionShape2D113" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 200, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 103
 
 [node name="CollisionShape2D114" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 104, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 104
 
 [node name="CollisionShape2D115" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 184, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 105
 
 [node name="CollisionShape2D116" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 120, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 106
 
 [node name="CollisionShape2D117" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 136, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 107
 
 [node name="CollisionShape2D118" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 152, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 108
 
 [node name="CollisionShape2D119" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 168, 296 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 109
 
 [node name="CollisionShape2D44" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 520, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 110
 
 [node name="CollisionShape2D45" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 536, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 111
 
 [node name="CollisionShape2D46" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 552, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 112
 
 [node name="CollisionShape2D47" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 568, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 113
 
 [node name="CollisionShape2D48" type="CollisionShape2D" parent="Control/StaticBody2D"]
 
 transform/pos = Vector2( 584, 40 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 114
 
@@ -1219,7 +1233,7 @@ _update_shape_index = 114
 
 editor/display_folded = true
 input/pickable = true
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 592, 272 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -1230,37 +1244,37 @@ angular_damp = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/LadderArea2D"]
 
 transform/pos = Vector2( 592, 272 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 
-[node name="KinematicBody2D" parent="Control" instance=ExtResource( 3 )]
+[node name="KinematicBody2D" parent="Control" instance=ExtResource( 4 )]
 
-[node name="KinematicBody2D1" parent="Control" instance=ExtResource( 3 )]
+[node name="KinematicBody2D1" parent="Control" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 456, 144 )
 
-[node name="KinematicBody2D2" parent="Control" instance=ExtResource( 3 )]
+[node name="KinematicBody2D2" parent="Control" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 456, 192 )
 
-[node name="KinematicBody2D3" parent="Control" instance=ExtResource( 3 )]
+[node name="KinematicBody2D3" parent="Control" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 400, 240 )
 
-[node name="KinematicBody2D4" parent="Control" instance=ExtResource( 3 )]
+[node name="KinematicBody2D4" parent="Control" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 336, 216 )
 
-[node name="KinematicBody2D5" parent="Control" instance=ExtResource( 3 )]
+[node name="KinematicBody2D5" parent="Control" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 392, 160 )
 
-[node name="KinematicBody2D6" parent="Control" instance=ExtResource( 3 )]
+[node name="KinematicBody2D6" parent="Control" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 416, 200 )
 
-[node name="KinematicBody2D 2" parent="Control" instance=ExtResource( 4 )]
+[node name="KinematicBody2D 2" parent="Control" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 24, 40 )
 
@@ -1337,7 +1351,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 16.0
 margin/bottom = 16.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items2" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1351,7 +1365,7 @@ margin/left = 20.0
 margin/top = 0.0
 margin/right = 36.0
 margin/bottom = 16.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items3" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1365,7 +1379,7 @@ margin/left = 40.0
 margin/top = 0.0
 margin/right = 56.0
 margin/bottom = 16.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items4" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1379,7 +1393,7 @@ margin/left = 60.0
 margin/top = 0.0
 margin/right = 76.0
 margin/bottom = 16.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items5" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1393,7 +1407,7 @@ margin/left = 0.0
 margin/top = 20.0
 margin/right = 16.0
 margin/bottom = 36.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items6" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1407,7 +1421,7 @@ margin/left = 20.0
 margin/top = 20.0
 margin/right = 36.0
 margin/bottom = 36.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items7" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1421,7 +1435,7 @@ margin/left = 40.0
 margin/top = 20.0
 margin/right = 56.0
 margin/bottom = 36.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items8" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1435,7 +1449,7 @@ margin/left = 60.0
 margin/top = 20.0
 margin/right = 76.0
 margin/bottom = 36.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items9" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1449,7 +1463,7 @@ margin/left = 0.0
 margin/top = 40.0
 margin/right = 16.0
 margin/bottom = 56.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items10" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1463,7 +1477,7 @@ margin/left = 20.0
 margin/top = 40.0
 margin/right = 36.0
 margin/bottom = 56.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items11" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1477,7 +1491,7 @@ margin/left = 40.0
 margin/top = 40.0
 margin/right = 56.0
 margin/bottom = 56.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items12" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1491,7 +1505,7 @@ margin/left = 60.0
 margin/top = 40.0
 margin/right = 76.0
 margin/bottom = 56.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items13" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1505,7 +1519,7 @@ margin/left = 0.0
 margin/top = 60.0
 margin/right = 16.0
 margin/bottom = 76.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items14" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1519,7 +1533,7 @@ margin/left = 20.0
 margin/top = 60.0
 margin/right = 36.0
 margin/bottom = 76.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items15" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1533,7 +1547,7 @@ margin/left = 40.0
 margin/top = 60.0
 margin/right = 56.0
 margin/bottom = 76.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Items16" type="TextureFrame" parent="GUIFrame/PanelContainer/TabContainer/Items"]
@@ -1547,7 +1561,7 @@ margin/left = 60.0
 margin/top = 60.0
 margin/right = 76.0
 margin/bottom = 76.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 stretch_mode = 0
 
 [node name="Upgrades" type="HBoxContainer" parent="GUIFrame/PanelContainer/TabContainer"]
@@ -1583,6 +1597,7 @@ alignment = 0
 [node name="ManaBG" type="ColorFrame" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -1624,7 +1639,6 @@ max_lines_visible = -1
 
 [node name="ProgressBG" type="ColorFrame" parent="."]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
